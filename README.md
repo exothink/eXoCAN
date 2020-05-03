@@ -1,7 +1,7 @@
 #  exoCAN Library 
 
 
-[<img src="assets/eXoCanSingleWire.jpg" width="500px">]
+[<img src="assets/eXoCanSingleWire.jpg" width="400px">]
 <!--https://github.com/exothink/eXoCAN/assets/eXoCanXcvr.jpg 
 [<img src="https://cdn-shop.adafruit.com/970x728/2021-00.jpg" width="500px">]
 https://github.com/exothink/eXoCAN/blob/master/assets/eXoCanSingleWire.jpg
@@ -12,10 +12,6 @@ This is the **exoCAN** library for the STM32F103 processor.
 Developed using the low cost 'Blue Pill' boards.
  * [eBay STM32f103 listings](https://www.ebay.com/sch/i.html?_from=R40&_trksid=m570.l1313&_nkw=stm32f103c8t6&_sacat=0&LH_TitleDesc=0&_osacat=0&_odkw=stm32f103+board)
  
-
-**note** 
-
-Check out the links above for our tutorials and wiring diagrams
 
 <!-- START COMPATIBILITY TABLE -->
 
@@ -34,18 +30,18 @@ CKS32f103c8        |      X       |              |             |
 <!-- END COMPATIBILITY TABLE -->
 
 # Installation:
-To install, use the Arduino Library Manager and search for "exoCAN" and install the library.  'exoCAN' was developed using Platformio and STM32duino.  
+To install, use the Arduino Library Manager and search for "exoCAN" and install the library.  The library was developed using Platformio and STM32duino.  
 
 ## Dependencies:
  * None
 
 # Features:
 * Std and Extended IDs
-* Multiple bit rates
+* Multiple Bit Rates
 * Hardware ID filtering, 32/16b, List/Masked
-* Listen Only, eavesdrop mode
-* CAN Transceiver Chip or Single Wire hardware bus
-* Variable data length
+* Listen Only, Eavesdrop Mode
+* CAN Transceiver Chip or Single Wire Hardware Bus
+* Variable Data Length
 * Byte, Int16, Int32 and Int64 data interface
 
 # Examples:
@@ -53,13 +49,13 @@ To install, use the Arduino Library Manager and search for "exoCAN" and install 
 A minimal example that toggles an LED upon reception of a CAN Bus frame.  Using the mode 'PORTA_11_12_WIRE_PULLUP' two or more boards communicate via a single wire.
 
 * **bpCanBlinkInterrupt.ino**   
-Adds interrupts for receive to bpBlink.ino.
+Adds interrupts for receive.
 
 * **eXoCanDataSim.ino**   
-Simulates varying data from multiple sensors and sends data to the CAN and serial busses.
+Simulates varying data from multiple sensors and sends data to the CAN and Serial busses.
 
 * **eXoCanDev.ino**  
-This example exercises most of the eXoCan API. It prints the RX/TX Can frames to the Serial port.
+This example exercises most of the exoCAN API. It prints the RX/TX Can frames to the Serial port.
 
 # Notes: 
 * **XCVR (external transceiver IC)**  
@@ -68,9 +64,9 @@ Commercial CAN bus integrated circuits provide the best performance and should b
 * **Single Wire Mode**  
 Single wire can be used in two ways: 
 
-  i. With Stm32f1 weak internal pull up resistors.  This mode should only be used for development, experimentation or possibly on-board communication.  The internal pull ups are nominal 40K ohm resistors and increases noise susceptibilty and limits speed.  
+  i. With Stm32f1 weak internal pull up resistors.  This mode should only be used for development, experimentation or possibly on-board communication.  The internal pull ups are nominal 40K ohm resistors, this increases noise susceptibilty and limits speed.  
 
-    ii. Single wire with an external pull up resistor in the range of 600 to 1000 ohms will yield better high-speed performance and noise immunity.  Although single wire may work when connected to a true differential CAN bus, it will unbalance the bus and reduce it's effectiveness.
+    ii. Single Wire with an external pull up resistor in the range of 600 to 1000 ohms will yield better high-speed performance and noise immunity.  Although single wire may work when connected to a true differential CAN bus, it will unbalance the bus and reduce it's effectiveness.
 
 * **Endianness**  
 The default endian of the stm32f1 is little.  This may cause problems on an existing bus with data types larger than byte.  You may find the bytes of these larger types are reversed.

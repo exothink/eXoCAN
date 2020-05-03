@@ -1,62 +1,18 @@
 /* 
-eXoCanDataSim.ino                                                                     4/30/20
+eXoCanDataSim.ino                                                            4/30/20
 
-minJeeCan                                                                             7/7/19
-from	canJeeduino                                                                     7/1/19
-	C:\Users\jhe\Documents\PlatformIO\Projects\canJeeduino\src\main.cpp   
-
-All non-needed code stripped from st32f1.h, st32f1-usb.h and Jee.h. Results are
-now in eXoCAN.h.  Working                                                             7/7/19 
-
-DATA:    [          ]   5.0% (used 1016 bytes from 20480 bytes)
-PROGRAM: [==        ]  21.6% (used 14128 bytes from 65536 bytes)
-
-filters/masks not working                                                             7/8
-added mailbox index to receive
-
-FINALLY  The filters are working. The problem is weird mapping to the registers       7/9  1721
-changed from 32b to 16b filters. working in mask mode                                 7/10
-
-filter index working understandably
-
-alt pins verified                                                                     8/12
-
-working with 'board = bluepill_f103c8_128k'                                           1/4/2020
-DATA:    [          ]   4.1% (used 836 bytes from 20480 bytes)
-PROGRAM: [=         ]  11.1% (used 14516 bytes from 131072 bytes)
+Simulates varying data from multiple sensors and sends data to the CAN and Serial busses.
 
 ****** REMEMBER No Serial USB with CAN *********
-adding build flags to pio.ini for serial usb cdc kills CAN bus
-
-TI Can boards DO NOT work!!!!  got one working by wiring RS pin low.                  1/5
 
 TJA1050 boards work, but must have a good +5V.  USB to UART adapters don't supply 
 enough current, +5V is down to 3V at blue pill.  USB from PC works.                   1/7
 
-added 'Union' for msg data type conversions                                           1/11
-
 just sending 8 bytes in a tight loop = 488uS msg to msg at br250K                     1/14
 444uS msg, 44uS dead time
 
-archived 2/6/20
-
-added struct with union                                                               2/6
-sends multiple measurements at defined times                                          2/7
-DATA:    [          ]   4.6% (used 944 bytes from 20480 bytes)
-PROGRAM: [==        ]  22.8% (used 14964 bytes from 65536 bytes)
-
-sends realistic fake data for all measurements                                        2/17
-  == [SUCCESS] Took 9.16 seconds =   (to build 2nd time & load)                       2/19
-
-
-CKS32 boards run OK with 64 or 128k builds. serial uart and can.
-
-using: C:\Users\jhe\Documents\PlatformIO\mySTM32LIBS\eXoCAN\eXoCAN.h  library        4/30/20
-      this will be in the 'examples' lib folder
 RAM:   [=         ]   5.4% (used 1108 bytes from 20480 bytes)
 Flash: [==        ]  18.1% (used 23692 bytes from 131072 bytes)  working
-
-
  */
 
 #include <arduino.h>

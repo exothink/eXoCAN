@@ -204,8 +204,8 @@ void loop()
   if (millis() / frame[frameIdx].txDly != last)
   {
     last = millis() / frame[frameIdx].txDly;
-    frame[0].txMsg.int32[1] = millis();    // lower 4 bytes of CAN msg
-    frame[0].txMsg.int32[0] = 0;        // first four bytes = 0
+    frame[0].txMsg.int32[1] = millis();    // high 4 bytes of CAN msg
+    frame[0].txMsg.int32[0] = 0;           // first four bytes = 0
     // frame[frameIdx].txMsg.int64 = 0x0807060504030201;
     Serial.println();
     canSend(frame[frameIdx], true);

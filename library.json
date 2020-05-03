@@ -9,8 +9,6 @@
     },
     "version": "1.0.0",
     "authors": "John Eckert",
-    "dependencies": "none",
-
     "frameworks": "arduino",
     "platforms": "ststm32"
 }

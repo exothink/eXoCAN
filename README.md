@@ -5,6 +5,7 @@
 <!--https://github.com/exothink/eXoCAN/assets/eXoCanXcvr.jpg 
 [<img src="https://cdn-shop.adafruit.com/970x728/2021-00.jpg" width="500px">]
 https://github.com/exothink/eXoCAN/blob/master/assets/eXoCanSingleWire.jpg
+https://github.com/exothink/eXoCAN/blob/master/assets/eXoCanXcvr.jpg
 -->
 
 This is the **eXoCAN** library for the STM32F103 processor.  
@@ -60,10 +61,12 @@ This example exercises most of the eXoCAN API. It prints the RX/TX Can frames to
 # Notes: 
 * **XCVR (external transceiver IC)**  
 Commercial CAN bus integrated circuits provide the best performance and should be used when connecting to an existing CAN bus. 
-* [Blue Pills with xcvr](<img src="assets/eXoCanXcvr.jpg" width="400px">)
 
-* **Single Wire Mode**  
-Single wire can be used in two ways: 
+  <img src="assets/eXoCanXcvr.jpg" width="300px">  BPs with TJA1050 CAN tranceiver boards using default and alternate pins.  
+  
+  **Caution:**   The "SN65HVD230 CAN Bus Transceiver Communication Module For Arduino" sold on eBay do not work.  I've tried several.
+
+* **Single wire can be used in two ways:** 
 
   i. With Stm32f1 weak internal pull up resistors.  This mode should only be used for development, experimentation or possibly on-board communication.  The internal pull ups are nominal 40K ohm resistors, this increases noise susceptibilty and limits speed.  
 

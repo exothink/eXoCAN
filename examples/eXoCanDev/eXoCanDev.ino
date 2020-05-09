@@ -167,7 +167,7 @@ inline void canRead(bool print = false) //check for a CAN Bus message
   // return id;
 }
 
-extern "C" void canISR() // get bus msg frame passed by a filter to FIFO0
+void canISR() // get bus msg frame passed by a filter to FIFO0
 {
   can.rxMsgLen = can.receive(can.id, can.fltIdx, can.rxData.bytes); // get CAN msg
 }

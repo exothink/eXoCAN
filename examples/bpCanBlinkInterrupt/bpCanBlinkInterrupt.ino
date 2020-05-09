@@ -43,7 +43,7 @@ uint8_t rxbytes[8];
 // 11b IDs, 250k bit rate, no transceiver chip, portA pins 11,12, no external resistor
 eXoCAN can(STD_ID_LEN, BR250K, PORTA_11_12_WIRE_PULLUP); 
 
-extern "C" void canISR() // get CAN bus frame passed by a filter into fifo0
+void canISR() // get CAN bus frame passed by a filter into fifo0
 {
     can.receive(id, fltIdx, rxbytes);  // empties fifo0 so that another another rx interrupt can take place
     digitalToggle(bluePillLED);

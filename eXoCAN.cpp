@@ -82,7 +82,7 @@ void eXoCAN::begin(idtype addrType, int brp, bool singleWire, bool alt, bool pul
     while (periphBit(INAK) == 0)        // wait for hw ready
         ;
     MMIO32(btr) = (3 << 20) | (12 << 16) | (brp << 0); // 125K, 12/15=80% sample pt. prescale = 15
-    periphBit(ti0r, 2) = _extIDs;                      // 0 = std 11b ids, 1 = extended 29b ids
+    // periphBit(ti0r, 2) = _extIDs;                      // 0 = std 11b ids, 1 = extended 29b ids
     periphBit(INRQ) = 0;                               // request init leave to Normal mode
     while (periphBit(INAK))                            // wait for hw
         ;
@@ -164,9 +164,9 @@ bool eXoCAN::transmit(int txId, const void *ptr, unsigned int len)
         return false;
 
     if (_extIDs)
-        MMIO32(ti0r) = (MMIO32(ti0r) & 0b111) | (txId << 3); // set 29b extended ID
+        MMIO32(ti0r) = (txId << 3)  + 0b100; // // set 29b extended ID.
     else
-        MMIO32(ti0r) = (txId << 21); //12b std id
+        MMIO32(ti0r) = (txId << 21) + 0b000; //12b std id
 
     MMIO32(tdt0r) = (len << 0);
     // this assumes that misaligned word access works

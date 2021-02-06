@@ -90,5 +90,5 @@ The default endian of the stm32f1 is little.  This may cause problems on an exis
 ## About this Driver:
 Written by John Eckert (k2ox).
 BSD license, check license.txt for more information
-All text above must be included in any redistribution
+All text above must be included in any redistribution.
 

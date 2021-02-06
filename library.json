@@ -7,7 +7,7 @@
         "type":"git",
         "url":"https://github.com/exothink/eXoCAN.git"
     },
-    "version":"1.0.0",
+    "version":"1.0.1",
     "authors":
     {
         "name": "John Eckert",

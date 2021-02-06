@@ -1,5 +1,7 @@
 #include "eXoCAN.h"
 
+// vers 1.0.1  02/06/2021
+
 void eXoCAN::begin(idtype addrType, int brp, BusType hw)
 {
     bool alt, wire;

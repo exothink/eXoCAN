@@ -16,9 +16,10 @@ C:\Users\jhe\Documents\PlatformIO\Projects\eXoCanInt\lib\eXoCAN
   // 'list' filters get seached first even when the index is higher that a mask filter
 
 
-extended IDs are working                                                                  4/19
+extended IDs are working                                                                   4/19
 
-constructor now does all the setup                                                        4/27
+constructor now does all the setup                                                         4/27
+       bug fix: extended ID filtering wasn't working. Wrong shift + set IDE bit            4/15/21
 */
 #include <arduino.h>
 
@@ -130,8 +131,9 @@ struct msgFrm
   idtype idLen = STD_ID_LEN;
   uint8_t txMsgLen = 0x08;
   MSG txMsg;
+  //uint8_t txMsg[8];
   BusType busConfig = PORTA_11_12_XCVR;
-  int txDly = 5000;
+  uint32_t txDly = 5000;
 };
 
 class eXoCAN
@@ -140,7 +142,7 @@ private:
   idtype _extIDs = STD_ID_LEN;
   idtype _rxExtended;
   void filter16Init(int bank, int mode, int a = 0, int b = 0, int c = 0, int d = 0); // 16b filters
-  void filter32Init(int bank, int mode, int a, int b);                               //32b filters
+  void filter32Init(int bank, int mode, u_int32_t a, u_int32_t b);                   //32b filters
 
 protected:
 public:
@@ -152,8 +154,8 @@ public:
   void disableInterrupt();
   void filterMask16Init(int bank, int idA = 0, int maskA = 0, int idB = 0, int maskB = 0x7ff); // 16b mask filters
   void filterList16Init(int bank, int idA = 0, int idB = 0, int idC = 0, int idD = 0);         // 16b list filters
-  void filterMask32Init(int bank, int id = 0, int mask = 0);
-  void filterList32Init(int bank, int idA = 0, int idB = 0); // 32b filters
+  void filterMask32Init(int bank, u_int32_t id = 0, u_int32_t mask = 0);
+  void filterList32Init(int bank, u_int32_t idA = 0, u_int32_t idB = 0); // 32b filters
   bool transmit(int txId, const void *ptr, unsigned int len);
   //int receive(volatile int *id, volatile int *fltrIdx, volatile void *pData);
   int receive(volatile int &id, volatile int &fltrIdx, volatile uint8_t pData[]);

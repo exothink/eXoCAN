@@ -1,7 +1,7 @@
 #include "eXoCAN.h"
 
 // vers 1.0.1  02/06/2021
-// vers 1.0.2  04/15/2021
+// vers 1.0.3  04/15/2021
 
 void eXoCAN::begin(idtype addrType, int brp, BusType hw)
 {

@@ -3,6 +3,7 @@
 /*
 eXoCAN.h      4/16/20
 vers 1.0.1  02/06/2021
+vers 1.0.2  04/15/2021
 
 'eXoCAN' is working as a struck in the original 'eXoCAN.h' file
 now working as a 'class'.  

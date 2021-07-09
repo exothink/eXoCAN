@@ -22,7 +22,7 @@ extended IDs are working                                                        
 constructor now does all the setup                                                         4/27
        bug fix: extended ID filtering wasn't working. Wrong shift + set IDE bit            4/15/21
 */
-#include <arduino.h>
+#include <Arduino.h>
 
 //Register addresses
 constexpr static uint32_t CANBase = 0x40006400;

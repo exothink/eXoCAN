@@ -15,7 +15,7 @@ RAM:   [=         ]   5.4% (used 1108 bytes from 20480 bytes)
 Flash: [==        ]  18.1% (used 23692 bytes from 131072 bytes)  working
  */
 
-#include <arduino.h>
+#include <Arduino.h>
 #include <eXoCAN.h> 
 
 #define PRINT true

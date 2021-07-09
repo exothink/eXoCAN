@@ -26,7 +26,7 @@ RAM:   [=         ]   6.3% (used 1292 bytes from 20480 bytes)   **without watchd
 Flash: [=         ]  12.6% (used 16472 bytes from 131072 bytes)
  */
 
-#include <arduino.h>
+#include <Arduino.h>
 #include <eXoCAN.h>
 #include <IWatchdog.h>
 

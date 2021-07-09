@@ -18,7 +18,7 @@
  working                                                                            4/25
 
 */
-#include <arduino.h>
+#include <Arduino.h>
 #include <eXoCAN.h>
 
 #define bluePillLED PC13

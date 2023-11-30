@@ -24,6 +24,10 @@ constructor now does all the setup                                              
 */
 #include <arduino.h>
 
+//fix missing u_int32_t type def
+#define u_int8_t uint8_t
+#define u_int32_t uint32_t
+
 //Register addresses
 constexpr static uint32_t CANBase = 0x40006400;
 
